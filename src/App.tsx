@@ -23,8 +23,6 @@ const App = () => {
   const [currency, setCurrency] = useState('EUR')
   const { data, isLoading, error, refetch } = useQuery<Currencies>('btc-data', getBCData)
 
-  console.log(data);
-
   const handleCurrency = (e: any) => {
     setCurrency(e.currentTarget.value)
   }
