@@ -25,11 +25,18 @@ const App = () => {
 
   console.log(data);
 
+  const handleCurrency = (e: any) => {
+    setCurrency(e.currentTarget.value)
+  }
+
   if (isLoading) return <div>Loading ---</div>
   if (error) return <div>Some error have occured ---</div>
   return (
     <Wrapper>
-     Start
+      <>
+        <h2>Bitcoin Price</h2>
+        <select value={currency} onChange={handleCurrency}></select>
+      </>
     </Wrapper>
   );
 }
