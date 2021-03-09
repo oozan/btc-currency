@@ -29,6 +29,11 @@ const App = () => {
     setCurrency(e.currentTarget.value)
   }
 
+  useEffect(() => {
+    const interval = setInterval(refetch, INTERVAL_TIME);
+    return () => clearInterval(interval);
+  }, [refetch])
+
   if (isLoading) return <div>Loading ---</div>
   if (error) return <div>Some error have occured ---</div>
   return (
