@@ -35,7 +35,19 @@ const App = () => {
     <Wrapper>
       <>
         <h2>Bitcoin Price</h2>
-        <select value={currency} onChange={handleCurrency}></select>
+        <select value={currency} onChange={handleCurrency}>
+          {data && Object.keys(data).map(currency => (
+            <option key={currency} value={currency}>
+                {currency}
+            </option>
+          ))}
+        </select>
+        <div>
+          <h2>
+            {data && data[currency].symbol}
+            {data && data[currency].last}
+          </h2>
+        </div>
       </>
     </Wrapper>
   );
