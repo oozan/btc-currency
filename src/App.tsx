@@ -23,6 +23,9 @@ const App = () => {
   const { data, isLoading, error, refetch } = useQuery<Currencies>('btc-data', getBCData)
 
   console.log(data);
+
+  if (isLoading) return <div>Loading ---</div>
+  if (error) return <div>Some error have occured ---</div>
   return (
     <div className="App">
      Start
