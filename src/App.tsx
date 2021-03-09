@@ -17,8 +17,12 @@ type Currencies = {
 const getBCData = async (): Promise<Currencies> => 
   await (await fetch('https://blockchain.info/ticker')).json();
 
+const INTERVAL_TIME = 30000;
 
 const App = () => {
+  const { data, isLoading, error, refetch } = useQuery<Currencies>('btc-data', getBCData)
+
+  console.log(data);
   return (
     <div className="App">
      Start
