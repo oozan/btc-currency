@@ -20,6 +20,7 @@ const getBCData = async (): Promise<Currencies> =>
 const INTERVAL_TIME = 30000;
 
 const App = () => {
+  const [currency, setCurrency] = useState('EUR')
   const { data, isLoading, error, refetch } = useQuery<Currencies>('btc-data', getBCData)
 
   console.log(data);
@@ -27,9 +28,9 @@ const App = () => {
   if (isLoading) return <div>Loading ---</div>
   if (error) return <div>Some error have occured ---</div>
   return (
-    <div className="App">
+    <Wrapper>
      Start
-    </div>
+    </Wrapper>
   );
 }
 
